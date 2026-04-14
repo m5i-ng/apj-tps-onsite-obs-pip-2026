@@ -291,9 +291,6 @@ For each scenario, add the appropriate processor(s) then click **"Deploy Pipelin
 1. If you create a monitor on `user_id`, which of these five services will trigger it?
 2. What should the normalised field name be for each concept? Agree on a convention before writing the processor.
 3. How would you handle services that already use the target name (e.g., `order-service` already has `user_id`) — do you need to guard against overwriting?
-
-> ⚠️ **Note:** The field renames in this processor (e.g., `.LEVEL` → `.level`) must happen before any processor that reads the normalised field name.
-
 ---
 
 ### S3 · Null and Empty Fields
@@ -306,7 +303,6 @@ For each scenario, add the appropriate processor(s) then click **"Deploy Pipelin
 
 1. How many junk-value fields did you count in a single event? What percentage of the event's fields are noise?
 2. Why does having null fields in logs cause problems for Datadog facets and dashboard widgets?
-> ⚠️ **Note:** Run **before** S1 (PII Redaction).
 
 ---
 
