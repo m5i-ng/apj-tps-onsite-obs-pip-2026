@@ -1,0 +1,2 @@
+api_key: "${DD_OP_API_KEY}"
+pipeline_id: "${DD_OP_PIPELINE_ID}"

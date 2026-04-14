@@ -1,0 +1,20 @@
+version: '3'
+services:
+  opw:
+    image: datadog/observability-pipelines-worker:latest
+    container_name: opw
+    command: run
+    environment:
+      - DD_OP_API_KEY
+      - DD_OP_PIPELINE_ID
+      - DD_SITE
+      - DD_OP_SOURCE_DATADOG_AGENT_ADDRESS=0.0.0.0:8282
+    volumes:
+      - ./bootstrap.yaml:/etc/observability-pipelines-worker/bootstrap.yaml
+    ports:
+      - 8282:8282/tcp  # DD Agent sends data here
+    networks:
+      - my-dd-network
+networks:
+   my-dd-network:
+     external: true
