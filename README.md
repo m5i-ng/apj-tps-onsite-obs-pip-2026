@@ -56,7 +56,7 @@ Clone the lab repository:
 
 ```
 cd ~
-git clone https://github.com/m5i-ng/apj-tps-onsite-ops-pip-2026.git
+git clone https://github.com/m5i-ng/apj-tps-onsite-obs-pip-2026.git
 ```
 
 ---
@@ -80,7 +80,7 @@ docker network create my-dd-network
 **2. Set your API key**
 
 ```
-vi ~/apac-onsite-event-2026/app/.env
+vi ~/apj-tps-onsite-obs-pip-2026/app/.env
 ```
 
 ```
@@ -91,7 +91,7 @@ DD_API_KEY=<Your API Key>
 **3. Start the Datadog Agent and DeliverLah app** *(OPW not yet)*
 
 ```
-cd ~/apac-onsite-event-2026/app
+cd ~/apj-tps-onsite-obs-pip-2026/app
 docker-compose -f dc-app-init.yaml up -d
 ```
 
@@ -169,7 +169,7 @@ Before building any processors, spend a few minutes browsing the raw logs in Dat
 **1.** Set your API key and Pipeline ID:
 
 ```
-vi ~/apac-onsite-event-2026/opw/.env
+vi ~/apj-tps-onsite-obs-pip-2026/opw/.env
 ```
 
 ```
@@ -177,7 +177,7 @@ DD_OP_API_KEY=<Your Datadog API Key>
 DD_OP_PIPELINE_ID=<Your Pipeline ID>
 ```
 
-**2.** Review the bootstrap config (`~/apac-onsite-event-2026/opw/bootstrap.yaml`):
+**2.** Review the bootstrap config (`~/apj-tps-onsite-obs-pip-2026/opw/bootstrap.yaml`):
 
 ```yaml
 api_key: "${DD_OP_API_KEY}"
@@ -187,7 +187,7 @@ pipeline_id: "${DD_OP_PIPELINE_ID}"
 **3.** Start OPW:
 
 ```
-cd ~/apac-onsite-event-2026/opw
+cd ~/apj-tps-onsite-obs-pip-2026/opw
 docker-compose -f dc-opw.yaml up -d
 ```
 
@@ -216,7 +216,7 @@ docker stop dd-agent
 **2.** See what changes:
 
 ```
-cd ~/apac-onsite-event-2026/app
+cd ~/apj-tps-onsite-obs-pip-2026/app
 diff dc-app-init.yaml dc-app-update.yaml
 ```
 
@@ -370,10 +370,10 @@ Go to https://app.datadoghq.com/observability-pipelines and select `pipeline-her
 ## Clean up
 
 ```
-cd ~/apac-onsite-event-2026/app
+cd ~/apj-tps-onsite-obs-pip-2026/app
 docker-compose -f dc-app-update.yaml down
 
-cd ~/apac-onsite-event-2026/opw
+cd ~/apj-tps-onsite-obs-pip-2026/opw
 docker-compose -f dc-opw.yaml down
 
 docker network rm my-dd-network
